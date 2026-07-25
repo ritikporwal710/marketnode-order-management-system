@@ -1,3 +1,121 @@
 # AI Prompt Log
 # Append a numbered entry for every AI interaction in the order they occurred.
 # See TASKS.md for the required format.
+
+---
+timestamp: 2026-07-26T01:38:25Z
+model: Gemini 3.6 Flash (High)
+prompt: |
+  so now i am going to give you the task to implement  ,first understand what i am saying 
+
+  from now whatever commands or prompt i am giving to you , you need to add in the @[ai-prompt.log] file, as i am doing the task you can read from @[TASKS.md] , 
+
+  so in this project the ims is already working and i have to work on the order management system,without breaking the existing ims,
+
+  so just understand this , and in next prompt i will give you how can you add this feature like tables and all
+---
+---
+timestamp: 2026-07-26T02:08:12Z
+model: Gemini 3.6 Flash (High)
+prompt: |
+  similarly like @[backend/src/main/java/com/example/inventorymngt/entity/ProductEntitiy.java] , i want to add one more entity that is Order entity 
+
+  so the order entity would contain 
+
+  Order
+  ------
+  id
+  userId
+  status
+  productName
+  productId (optional)
+  quantity
+  unitPrice
+  totalAmount
+  createdAt
+
+  and also keep orderRepository , orderService, 
+
+  so for creating order follow this logic
+
+  recieve request, find product, check exists ? and then check stock availablity, then deduct and create order 
+
+  and for cancel the order, first check the order exist, then change status from CREATED to CANCELED, and save it 
+
+
+  so apis i want in orderController are 
+
+  GET /api/store/products
+
+  GET /api/store/products/{id}
+
+  POST /api/orders
+
+  GET /api/orders
+
+  GET /api/orders/{id}
+
+
+  PUT /api/orders/{id}/cancel
+
+
+  now do these backend changes first , then next i will tell you how you can do for frontend 
+---
+timestamp: 2026-07-26T02:20:40Z
+model: Claude Sonnet 4.6 (Thinking)
+prompt: |
+  so now do for the frontend,  so without touching ims, just add for oms,
+
+  add new naviagations on the sidebar just below of products 
+
+  now add screen 1, that is product catalog, 
+
+  for each product just show in stock or out of stock and not the quantity available 
+
+  and add screen 2, the product detail , in that show laptop, price, description, quantity and buy option, 
+
+  and screen 3, order history, in that show all the orders 
+
+  and screen 4 order detail, when i click on particular order , in this show laptop, quantity, unit price, total, status  
+
+  and please keep the ui consitent with other ui, and more cleaner 
+---
+---
+timestamp: 2026-07-26T02:29:00Z
+model: Claude Sonnet 4.6 (Thinking)
+prompt: |
+  okay, but when i am placing the order then if the order failed , like if the item is not available that much of quantity then show not available place only one or less quantity 
+
+  and if placed successfully then take user to the order history page 
+---
+---
+timestamp: 2026-07-26T02:42:13Z
+model: Claude Sonnet 4.6 (Thinking)
+prompt: |
+  the api is returning a generic 400 Bad Request JSON without the custom message when the item is out of stock.
+  it should return that insufficient stock message, then in frontend show that order less quantity.
+  Request URL: http://localhost:5173/api/orders POST 400 Bad Request
+---
+
+
+
+
+---
+timestamp: 2026-07-26T02:51:29Z
+model: Claude Sonnet 4.6 (Thinking)
+prompt: |
+  make the ui more cleaner and more responsive for StoreProductDetailPage() and OrderDetailPage(),
+  so it looks more like a enterprise application
+---
+---
+timestamp: 2026-07-26T03:17:18Z
+model: Gemini 3.6 Flash (High)
+prompt: |
+  and also add readme.md file in which add the instruction to run this file like first clone the repo and doing docker compose build and then docker compose up -d
+
+  and also add these screenshots i am attaching 
+
+  and keep this readme file simple to understand 
+
+  and please add only these images, not edit these images
+---
