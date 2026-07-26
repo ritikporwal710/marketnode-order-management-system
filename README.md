@@ -12,18 +12,18 @@ Follow these simple steps to run the application locally:
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
-cd candidate-project
+git clone https://github.com/ritikporwal710/marketnode-order-management-system
+cd marketnode-order-management-system
 ```
 
 ### 2. Build Docker Containers
 ```bash
-docker-compose build
+docker-compose build    or docker compose build
 ```
 
 ### 3. Start the Application
 ```bash
-docker-compose up -d
+docker-compose up -d    or docker compose up -d
 ```
 
 Once started, access the application in your browser:
